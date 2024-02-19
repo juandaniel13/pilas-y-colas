@@ -29,3 +29,9 @@ class Pila:
         for caracter in self.caracteres:
             del caracter
         del self.caracteres    
+
+    def __str__(self) -> str:
+        pila_str: str = '['
+        for caracter in self.caracteres:
+            pila_str += f'{caracter}, '
+        return pila_str+']'

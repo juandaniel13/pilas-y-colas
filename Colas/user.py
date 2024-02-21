@@ -19,6 +19,9 @@ class UsuarioPrivilegiado(Usuario):
   
   def obtener_tipo(self) -> str:
     return self._tipo+':'+self._pago.obtener_tipo()
+  
+  def __str__(self) -> str:
+    return f"El cliente {self._nombre} con correo {self._correo} tiene un saldo de: {self._pago.obtener_monto()}"
 
 class UsuarioIntermedio(Usuario):
   def __init__(self, nombre: str, correo: str, pago: Pago) -> None:
@@ -33,3 +36,6 @@ class UsuarioIntermedio(Usuario):
   
   def obtener_tipo(self) -> str:
     return self._tipo+':'+self._pago.obtener_tipo()
+  
+  def __str__(self) -> str:
+    return f"El cliente {self._nombre} con correo {self._correo} tiene un saldo de: {self._pago.obtener_monto()}"

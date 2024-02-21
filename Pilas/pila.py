@@ -13,7 +13,7 @@ class Pila:
         except IndexError:
             print(Pila.PILA_VACIA)
 
-    def estaVacia(self) -> bool:
+    def esta_vacia(self) -> bool:
         return self.caracteres == []
 
     def top(self) -> str:

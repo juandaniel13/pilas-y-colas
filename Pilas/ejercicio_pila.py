@@ -22,7 +22,7 @@ def leer_entrada_usuario_o_prueba(prueba_texto: str | None = None) -> list[str]:
             PILA_CLAVE.push(caracter)
             respuestas.append(f"Se ha ingresado el carácter: '{caracter}' a la pila")
         elif caracter in ELEMENTOS_CLAVE_FINAL: 
-            if PILA_CLAVE.estaVacia():
+            if PILA_CLAVE.esta_vacia():
                 respuestas.append("Error: No se puede ingresar un carácter de cierre ya que la pila está vacía")
 
             if ( caracter == ')' and PILA_CLAVE.top() == '(') or (caracter == ']' and PILA_CLAVE.top() == '['):
@@ -40,11 +40,6 @@ def main():
     print("Equilibrado de Símbolos")
     while True:
         respuestas: list[str] = leer_entrada_usuario_o_prueba()
-
-        # if respuestas == SALIR:
-        #     print("Ha finalizado la ejecución del programa")
-        #     PILA_CLAVE.borrar_pila()
-        #     break
 
         print(respuestas)
         print(f"Pila Clave: {PILA_CLAVE}")

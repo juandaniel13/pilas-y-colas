@@ -2,24 +2,40 @@
 from user import Usuario
 
 class Estrategia:
-  def realizar_pago_por_usuario(usuario: Usuario, monto: float) -> bool:
+  def realizar_pago_por_usuario(self, usuario: Usuario, monto: float) -> bool:
     pass
 
 class EstrategiaPagoEfectivoPrivilegiado(Estrategia):
-  def realizar_pago_por_usuario(usuario: Usuario, monto: float) -> tuple[bool, int]:
-    pass
+  def realizar_pago_por_usuario(self, usuario: Usuario, monto: float) -> tuple[bool, int]:
+    pago_exitoso = usuario.pagar(monto)
+    if not pago_exitoso:
+      return (False, 0)
+    
+    return (True, 2)
 
 class EstrategiaPagoDigitalPrivilegiado(Estrategia):
-  def realizar_pago_por_usuario(usuario: Usuario, monto: float) -> tuple[bool, int]:
-    pass
+  def realizar_pago_por_usuario(self, usuario: Usuario, monto: float) -> tuple[bool, int]:
+    pago_exitoso = usuario.pagar(monto)
+    if not pago_exitoso:
+      return (False, 0)
+    
+    return (True, 2)
 
 class EstrategiaPagoEfectivoIntermedio(Estrategia):
-  def realizar_pago_por_usuario(usuario: Usuario, monto: float) -> tuple[bool, int]:
-    pass
+  def realizar_pago_por_usuario(self, usuario: Usuario, monto: float) -> tuple[bool, int]:
+    pago_exitoso = usuario.pagar(monto)
+    if not pago_exitoso:
+      return (False, 0)
+    
+    return (True, 1)
 
 class EstrategiaPagoDigitalIntermedio(Estrategia):
-  def realizar_pago_por_usuario(usuario: Usuario, monto: float) -> tuple[bool, int]:
-    pass
+  def realizar_pago_por_usuario(self, usuario: Usuario, monto: float) -> tuple[bool, int]:
+    pago_exitoso = usuario.pagar(monto)
+    if not pago_exitoso:
+      return (False, 0)
+    
+    return (True, 1)
 
 ESTRATEGIA_PAGO_DIGITAL_INTERMEDIO = EstrategiaPagoDigitalIntermedio()
 ESTRATEGIA_PAGO_EFECTIVO_INTERMEDIO = EstrategiaPagoEfectivoIntermedio()

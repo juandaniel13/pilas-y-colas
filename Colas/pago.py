@@ -1,134 +1,111 @@
-from pago import Pago
-
-class Usuario:
+class Pago:
     """
-    Representa a un usuario genérico.
+    Representa un pago genérico.
 
     Attributes:
-        _nombre (str): El nombre del usuario.
-        _correo (str): El correo electrónico del usuario.
-        _pago (Pago): El método de pago del usuario.
+        _monto (float): El monto del pago.
     """
 
-    def __init__(self, nombre: str, correo: str, pago: Pago) -> None:
+    def __init__(self) -> None:
         """
-        Inicializa un nuevo usuario.
+        Inicializa un nuevo pago con un monto inicial de 0.
+        """
+        self._monto: float = 0
+  
+    def establecer_monto(self, monto: float) -> None:
+        """
+        Establece el monto del pago.
 
         Args:
-            nombre (str): El nombre del usuario.
-            correo (str): El correo electrónico del usuario.
-            pago (Pago): El método de pago del usuario.
+            monto (float): El monto a establecer.
         """
-        self._nombre: str = nombre
-        self._correo: str = correo
-        self._pago: Pago = pago 
+        self._monto = monto
 
-class UsuarioPrivilegiado(Usuario):
-    """
-    Representa a un usuario privilegiado que tiene descuentos y promociones especiales.
-
-    Attributes:
-        descuento (float): El porcentaje de descuento aplicado al pago.
-        promocion (bool): Indica si el usuario tiene una promoción activa.
-        _tipo (str): El tipo de usuario.
-    """
-
-    def __init__(self, nombre: str, correo: str, pago: Pago) -> None:
+    def obtener_monto(self) -> float:
         """
-        Inicializa un nuevo usuario privilegiado.
-
-        Args:
-            nombre (str): El nombre del usuario.
-            correo (str): El correo electrónico del usuario.
-            pago (Pago): El método de pago del usuario.
-        """
-        super().__init__(nombre, correo, pago)
-        self.descuento: float = 0.4
-        self.promocion: bool = True
-        self._pago.establecer_monto(5000000)
-        self._tipo: str = 'PRIVILEGIADO'
-
-    def pagar(self, monto: float) -> bool:
-        """
-        Realiza un pago con descuento para el usuario privilegiado.
-
-        Args:
-            monto (float): El monto a pagar.
+        Obtiene el monto del pago.
 
         Returns:
-            bool: True si el pago fue exitoso, False de lo contrario.
+            float: El monto del pago.
         """
-        return self._pago.pagar(monto*self.descuento)
+        return self._monto
+
+class PagoEfectivo(Pago):
+    """
+    Representa un pago en efectivo.
+
+    Attributes:
+        _descuento (float): El porcentaje de descuento aplicado al pagar en efectivo.
+    """
+
+    def __init__(self) -> None:
+        """
+        Inicializa un nuevo pago en efectivo con un descuento del 2%.
+        """
+        super().__init__()
+        self._descuento: float = 0.02
+
+    def pagar(self, monto_a_pagar: float) -> bool:
+        """
+        Realiza un pago en efectivo.
+
+        Args:
+            monto_a_pagar (float): El monto a pagar.
+
+        Returns:
+            bool: True si el pago se realiza correctamente, False en caso contrario.
+        """
+        if (monto_a_pagar*self._descuento) > self._monto:
+            return False
+
+        self._monto -= (monto_a_pagar * self._descuento)
+        return True
   
     def obtener_tipo(self) -> str:
         """
-        Obtiene el tipo de usuario.
+        Obtiene el tipo de pago.
 
         Returns:
-            str: El tipo de usuario junto con el tipo de pago.
+            str: El tipo de pago ('EFECTIVO').
         """
-        return self._tipo+':'+self._pago.obtener_tipo()
-  
-    def __str__(self) -> str:
-        """
-        Devuelve una representación en cadena del usuario privilegiado.
+        return 'EFECTIVO'
 
-        Returns:
-            str: Una representación en cadena del usuario privilegiado.
-        """
-        return f"El cliente {self._nombre} con correo {self._correo} tiene un saldo de: {self._pago.obtener_monto()}"
-
-class UsuarioIntermedio(Usuario):
+class PagoDigital(Pago):
     """
-    Representa a un usuario intermedio que tiene descuentos moderados y sin promociones especiales.
+    Representa un pago digital.
 
     Attributes:
-        descuento (float): El porcentaje de descuento aplicado al pago.
-        promocion (bool): Indica si el usuario tiene una promoción activa.
-        _tipo (str): El tipo de usuario.
+        _descuento (float): El porcentaje de descuento aplicado al pagar de forma digital.
     """
 
-    def __init__(self, nombre: str, correo: str, pago: Pago) -> None:
+    def __init__(self) -> None:
         """
-        Inicializa un nuevo usuario intermedio.
+        Inicializa un nuevo pago digital con un descuento del 2%.
+        """
+        super().__init__()
+        self._descuento: float = 0.02
+
+    def pagar(self, monto_a_pagar: float) -> bool:
+        """
+        Realiza un pago digital.
 
         Args:
-            nombre (str): El nombre del usuario.
-            correo (str): El correo electrónico del usuario.
-            pago (Pago): El método de pago del usuario.
-        """
-        super().__init__(nombre, correo, pago)
-        self.descuento: float = 0.2
-        self.promocion: bool = False
-        self._pago.establecer_monto(3000000)
-        self._tipo: str = 'INTERMEDIO'
-
-    def pagar(self, monto: float) -> bool:
-        """
-        Realiza un pago con descuento para el usuario intermedio.
-
-        Args:
-            monto (float): El monto a pagar.
+            monto_a_pagar (float): El monto a pagar.
 
         Returns:
-            bool: True si el pago fue exitoso, False de lo contrario.
+            bool: True si el pago se realiza correctamente, False en caso contrario.
         """
-        return self._pago.pagar(monto*self.descuento)
-  
+        if (monto_a_pagar*self._descuento) > self._monto:
+            return False
+
+        self._monto -= (monto_a_pagar * self._descuento)
+        return True
+
     def obtener_tipo(self) -> str:
         """
-        Obtiene el tipo de usuario.
+        Obtiene el tipo de pago.
 
         Returns:
-            str: El tipo de usuario junto con el tipo de pago.
+            str: El tipo de pago ('DIGITAL').
         """
-        return self._tipo+':'+self._pago.obtener_tipo()
-  
-    def __str__(self) -> str:
-        """
-        Devuelve una representación en cadena del usuario intermedio.
-
-        Returns:
-            str: Una representación en cadena del usuario intermedio.
-        """
-        return f"El cliente {self._nombre} con correo {self._correo} tiene un saldo de: {self._pago.obtener_monto()}"
+        return 'DIGITAL'

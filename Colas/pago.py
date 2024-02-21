@@ -11,24 +11,30 @@ class Pago:
 
 class PagoEfectivo(Pago):
   def __init__(self) -> None:
-    super()
+    super().__init__()
     self._descuento: float = 0.02
 
-  def pagar(self, monto_a_pagar: float) -> float:
+  def pagar(self, monto_a_pagar: float) -> bool:
     if (monto_a_pagar*self._descuento) > self._monto:
-      return 0
+      return False
 
     self._monto-=(monto_a_pagar*self._descuento)
-    return monto_a_pagar
+    return True
+  
+  def obtener_tipo(self) -> str:
+    return 'EFECTIVO'
 
 class PagoDigital(Pago):
   def __init__(self) -> None:
-    super()
+    super().__init__()
     self._descuento: float = 0.02
 
-  def pagar(self, monto_a_pagar: float) -> float:
+  def pagar(self, monto_a_pagar: float) -> bool:
     if (monto_a_pagar*self._descuento) > self._monto:
-      return 0
+      return False
 
     self._monto-=(monto_a_pagar*self._descuento)
-    return monto_a_pagar
+    return True
+
+  def obtener_tipo(self) -> str:
+    return 'DIGITAL'

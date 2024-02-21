@@ -1,4 +1,3 @@
-
 import threading
 import time
 import random
@@ -9,53 +8,67 @@ from estrategia import *
 from cola import Cola
 
 def main() -> None:
-  COSTO_BOLETA = 500000
+    """
+    Función principal que simula el proceso de compra de boletas.
+    """
+    COSTO_BOLETA = 500000
 
-  PAGO_DIGITAL = PagoDigital()
-  PAGO_EFECTIVO = PagoEfectivo()
+    # Crear objetos de pago
+    PAGO_DIGITAL = PagoDigital()
+    PAGO_EFECTIVO = PagoEfectivo()
 
-  CLIENTES = [
-    UsuarioIntermedio("Johan", "correo1@gmail.com", PAGO_DIGITAL),
-    UsuarioIntermedio("Andres", "correo2@gmail.com", PAGO_EFECTIVO),
-    UsuarioPrivilegiado("Daniel", "correo3@gmail.com", PAGO_DIGITAL),
-    UsuarioPrivilegiado("Juan", "correo4@gmail.com", PAGO_EFECTIVO),
-  ]
+    # Crear lista de clientes
+    CLIENTES = [
+        UsuarioIntermedio("Johan", "correo1@gmail.com", PAGO_DIGITAL),
+        UsuarioIntermedio("Andres", "correo2@gmail.com", PAGO_EFECTIVO),
+        UsuarioPrivilegiado("Daniel", "correo3@gmail.com", PAGO_DIGITAL),
+        UsuarioPrivilegiado("Juan", "correo4@gmail.com", PAGO_EFECTIVO),
+    ]
 
-  COLA = Cola()
+    # Crear una cola para manejar la espera de los clientes
+    COLA = Cola()
 
-  estrategia = ContextoEstrategia()
+    # Crear una estrategia de pago
+    estrategia = ContextoEstrategia()
 
-  ejecutar = True
-  def mandar_clientes_a_comprar() -> None:
-    while ejecutar:
-      time.sleep(1)
-      cliente = random.choice(CLIENTES)
-      estrategia.establecer_estrategia(cliente)
-      resultado, cantidad_boletas = estrategia.definir_pago(COSTO_BOLETA, cliente)
-      COLA.queue((resultado, cantidad_boletas, str(cliente)))
+    # Variable para controlar la ejecución del hilo
+    ejecutar = True
 
-  ejecucion_clientes = threading.Thread(target=mandar_clientes_a_comprar)
-  ejecucion_clientes.start()
+    # Función para enviar clientes a comprar
+    def mandar_clientes_a_comprar() -> None:
+        """
+        Función que envía clientes a comprar boletas.
+        """
+        while ejecutar:
+            time.sleep(1)
+            cliente = random.choice(CLIENTES)
+            estrategia.establecer_estrategia(cliente)
+            resultado, cantidad_boletas = estrategia.definir_pago(COSTO_BOLETA, cliente)
+            COLA.queue((resultado, cantidad_boletas, str(cliente)))
 
-  while True:
-    time.sleep(3)
-    if COLA.tam() == 0:
-      continue
+    # Iniciar hilo para enviar clientes a comprar
+    ejecucion_clientes = threading.Thread(target=mandar_clientes_a_comprar)
+    ejecucion_clientes.start()
 
-    print(f"Clientes en cola: {COLA}")
-    resultado, cantidad_boletos, datos_cliente = COLA.dequeue()
-    print()
-    print(f"Compra: {resultado}, Cantidad Boletas: {cantidad_boletos} \n {datos_cliente}")
-    print()
+    # Bucle principal de procesamiento
+    while True:
+        time.sleep(3)
+        if COLA.tam() == 0:
+            continue
 
-    if COLA.tam() >= 20:
-      ejecutar = False
-      
-    if not ejecutar and COLA.tam() == 0:
-      break 
+        print(f"Clientes en cola: {COLA}")
+        resultado, cantidad_boletos, datos_cliente = COLA.dequeue()
+        print()
+        print(f"Compra: {resultado}, Cantidad Boletas: {cantidad_boletos} \n {datos_cliente}")
+        print()
 
-  ejecucion_clientes.join()
+        if COLA.tam() >= 20:
+            ejecutar = False
 
+        if not ejecutar and COLA.tam() == 0:
+            break
+
+    ejecucion_clientes.join()
 
 if __name__ == '__main__':
-  main()
+    main()

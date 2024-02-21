@@ -28,7 +28,7 @@ def main() -> None:
   ejecutar = True
   def mandar_clientes_a_comprar() -> None:
     while ejecutar:
-      time.sleep(2)
+      time.sleep(1)
       cliente = random.choice(CLIENTES)
       estrategia.establecer_estrategia(cliente)
       resultado, cantidad_boletas = estrategia.definir_pago(COSTO_BOLETA, cliente)
@@ -36,9 +36,9 @@ def main() -> None:
 
   ejecucion_clientes = threading.Thread(target=mandar_clientes_a_comprar)
   ejecucion_clientes.start()
-  ejecucion_clientes.join()
 
   while True:
+    time.sleep(3)
     if COLA.tam() == 0:
       continue
 
@@ -48,8 +48,13 @@ def main() -> None:
     print(f"Compra: {resultado}, Cantidad Boletas: {cantidad_boletos} \n {datos_cliente}")
     print()
 
-    if COLA.tam() == 20:
+    if COLA.tam() >= 20:
       ejecutar = False
+      
+    if not ejecutar and COLA.tam() == 0:
+      break 
+
+  ejecucion_clientes.join()
 
 
 if __name__ == '__main__':

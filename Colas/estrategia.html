@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module estrategia</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">estrategia</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cjohan%5Cdocuments%5Cciii%5Cpilas-y-colas%5Ccolas%5Cestrategia.py">c:\users\johan\documents\ciii\pilas-y-colas\colas\estrategia.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="estrategia.html#ContextoEstrategia">ContextoEstrategia</a>
+</dt><dt class="heading-text"><a href="estrategia.html#Estrategia">Estrategia</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="estrategia.html#EstrategiaPagoDigitalIntermedio">EstrategiaPagoDigitalIntermedio</a>
+</dt><dt class="heading-text"><a href="estrategia.html#EstrategiaPagoDigitalPrivilegiado">EstrategiaPagoDigitalPrivilegiado</a>
+</dt><dt class="heading-text"><a href="estrategia.html#EstrategiaPagoEfectivoIntermedio">EstrategiaPagoEfectivoIntermedio</a>
+</dt><dt class="heading-text"><a href="estrategia.html#EstrategiaPagoEfectivoPrivilegiado">EstrategiaPagoEfectivoPrivilegiado</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ContextoEstrategia">class <strong>ContextoEstrategia</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Define&nbsp;el&nbsp;contexto&nbsp;para&nbsp;utilizar&nbsp;una&nbsp;estrategia&nbsp;de&nbsp;pago&nbsp;específica.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ContextoEstrategia-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Inicializa&nbsp;un&nbsp;nuevo&nbsp;contexto&nbsp;de&nbsp;estrategia.</span></dd></dl>
+
+<dl><dt><a name="ContextoEstrategia-definir_pago"><strong>definir_pago</strong></a>(self, monto: float, usuario: user.Usuario) -&gt; tuple[bool, int]</dt><dd><span class="code">Define&nbsp;el&nbsp;pago&nbsp;utilizando&nbsp;la&nbsp;estrategia&nbsp;de&nbsp;pago&nbsp;concreta.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;int]:&nbsp;Una&nbsp;tupla&nbsp;que&nbsp;indica&nbsp;si&nbsp;el&nbsp;pago&nbsp;fue&nbsp;exitoso&nbsp;y&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.</span></dd></dl>
+
+<dl><dt><a name="ContextoEstrategia-establecer_estrategia"><strong>establecer_estrategia</strong></a>(self, usuario: user.Usuario) -&gt; None</dt><dd><span class="code">Establece&nbsp;la&nbsp;estrategia&nbsp;de&nbsp;pago&nbsp;concreta&nbsp;basada&nbsp;en&nbsp;el&nbsp;tipo&nbsp;de&nbsp;usuario.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;establece&nbsp;la&nbsp;estrategia.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Estrategia">class <strong>Estrategia</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Define&nbsp;la&nbsp;interfaz&nbsp;para&nbsp;realizar&nbsp;un&nbsp;pago&nbsp;por&nbsp;un&nbsp;usuario.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Estrategia-realizar_pago_por_usuario"><strong>realizar_pago_por_usuario</strong></a>(self, usuario: user.Usuario, monto: float) -&gt; bool</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;por&nbsp;un&nbsp;usuario.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;si&nbsp;el&nbsp;pago&nbsp;se&nbsp;realiza&nbsp;correctamente,&nbsp;False&nbsp;en&nbsp;caso&nbsp;contrario.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EstrategiaPagoDigitalIntermedio">class <strong>EstrategiaPagoDigitalIntermedio</strong></a>(<a href="estrategia.html#Estrategia">Estrategia</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Estrategia">Estrategia</a>&nbsp;de&nbsp;pago&nbsp;digital&nbsp;para&nbsp;usuarios&nbsp;intermedios.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="estrategia.html#EstrategiaPagoDigitalIntermedio">EstrategiaPagoDigitalIntermedio</a></dd>
+<dd><a href="estrategia.html#Estrategia">Estrategia</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EstrategiaPagoDigitalIntermedio-realizar_pago_por_usuario"><strong>realizar_pago_por_usuario</strong></a>(self, usuario: user.Usuario, monto: float) -&gt; tuple[bool, int]</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;digital&nbsp;para&nbsp;un&nbsp;usuario&nbsp;intermedio.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;int]:&nbsp;Una&nbsp;tupla&nbsp;que&nbsp;indica&nbsp;si&nbsp;el&nbsp;pago&nbsp;fue&nbsp;exitoso&nbsp;y&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="estrategia.html#Estrategia">Estrategia</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EstrategiaPagoDigitalPrivilegiado">class <strong>EstrategiaPagoDigitalPrivilegiado</strong></a>(<a href="estrategia.html#Estrategia">Estrategia</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Estrategia">Estrategia</a>&nbsp;de&nbsp;pago&nbsp;digital&nbsp;para&nbsp;usuarios&nbsp;privilegiados.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="estrategia.html#EstrategiaPagoDigitalPrivilegiado">EstrategiaPagoDigitalPrivilegiado</a></dd>
+<dd><a href="estrategia.html#Estrategia">Estrategia</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EstrategiaPagoDigitalPrivilegiado-realizar_pago_por_usuario"><strong>realizar_pago_por_usuario</strong></a>(self, usuario: user.Usuario, monto: float) -&gt; tuple[bool, int]</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;digital&nbsp;para&nbsp;un&nbsp;usuario&nbsp;privilegiado.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;int]:&nbsp;Una&nbsp;tupla&nbsp;que&nbsp;indica&nbsp;si&nbsp;el&nbsp;pago&nbsp;fue&nbsp;exitoso&nbsp;y&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="estrategia.html#Estrategia">Estrategia</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EstrategiaPagoEfectivoIntermedio">class <strong>EstrategiaPagoEfectivoIntermedio</strong></a>(<a href="estrategia.html#Estrategia">Estrategia</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Estrategia">Estrategia</a>&nbsp;de&nbsp;pago&nbsp;efectivo&nbsp;para&nbsp;usuarios&nbsp;intermedios.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="estrategia.html#EstrategiaPagoEfectivoIntermedio">EstrategiaPagoEfectivoIntermedio</a></dd>
+<dd><a href="estrategia.html#Estrategia">Estrategia</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EstrategiaPagoEfectivoIntermedio-realizar_pago_por_usuario"><strong>realizar_pago_por_usuario</strong></a>(self, usuario: user.Usuario, monto: float) -&gt; tuple[bool, int]</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;en&nbsp;efectivo&nbsp;para&nbsp;un&nbsp;usuario&nbsp;intermedio.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;int]:&nbsp;Una&nbsp;tupla&nbsp;que&nbsp;indica&nbsp;si&nbsp;el&nbsp;pago&nbsp;fue&nbsp;exitoso&nbsp;y&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="estrategia.html#Estrategia">Estrategia</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EstrategiaPagoEfectivoPrivilegiado">class <strong>EstrategiaPagoEfectivoPrivilegiado</strong></a>(<a href="estrategia.html#Estrategia">Estrategia</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Estrategia">Estrategia</a>&nbsp;de&nbsp;pago&nbsp;efectivo&nbsp;para&nbsp;usuarios&nbsp;privilegiados.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="estrategia.html#EstrategiaPagoEfectivoPrivilegiado">EstrategiaPagoEfectivoPrivilegiado</a></dd>
+<dd><a href="estrategia.html#Estrategia">Estrategia</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EstrategiaPagoEfectivoPrivilegiado-realizar_pago_por_usuario"><strong>realizar_pago_por_usuario</strong></a>(self, usuario: user.Usuario, monto: float) -&gt; tuple[bool, int]</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;en&nbsp;efectivo&nbsp;para&nbsp;un&nbsp;usuario&nbsp;privilegiado.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(Usuario):&nbsp;El&nbsp;usuario&nbsp;para&nbsp;el&nbsp;que&nbsp;se&nbsp;realiza&nbsp;el&nbsp;pago.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple[bool,&nbsp;int]:&nbsp;Una&nbsp;tupla&nbsp;que&nbsp;indica&nbsp;si&nbsp;el&nbsp;pago&nbsp;fue&nbsp;exitoso&nbsp;y&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="estrategia.html#Estrategia">Estrategia</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ESTRATEGIA_PAGO_DIGITAL_INTERMEDIO</strong> = &lt;estrategia.EstrategiaPagoDigitalIntermedio object&gt;<br>
+<strong>ESTRATEGIA_PAGO_DIGITAL_PRIVILEGIADO</strong> = &lt;estrategia.EstrategiaPagoDigitalPrivilegiado object&gt;<br>
+<strong>ESTRATEGIA_PAGO_EFECTIVO_INTERMEDIO</strong> = &lt;estrategia.EstrategiaPagoEfectivoIntermedio object&gt;<br>
+<strong>ESTRATEGIA_PAGO_EFECTIVO_PRIVILEGIADO</strong> = &lt;estrategia.EstrategiaPagoEfectivoPrivilegiado object&gt;</td></tr></table>
+</body></html>

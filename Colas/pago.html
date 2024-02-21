@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module pago</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">pago</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cjohan%5Cdocuments%5Cciii%5Cpilas-y-colas%5Ccolas%5Cpago.py">c:\users\johan\documents\ciii\pilas-y-colas\colas\pago.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="pago.html#Pago">Pago</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="pago.html#PagoDigital">PagoDigital</a>
+</dt><dt class="heading-text"><a href="pago.html#PagoEfectivo">PagoEfectivo</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Pago">class <strong>Pago</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Pago">Pago</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Representa&nbsp;un&nbsp;pago&nbsp;genérico.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Pago-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Inicializa&nbsp;un&nbsp;nuevo&nbsp;pago&nbsp;con&nbsp;un&nbsp;monto&nbsp;inicial&nbsp;de&nbsp;0.</span></dd></dl>
+
+<dl><dt><a name="Pago-establecer_monto"><strong>establecer_monto</strong></a>(self, monto: float) -&gt; None</dt><dd><span class="code">Establece&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;a&nbsp;establecer.</span></dd></dl>
+
+<dl><dt><a name="Pago-obtener_monto"><strong>obtener_monto</strong></a>(self) -&gt; float</dt><dd><span class="code">Obtiene&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float:&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="PagoDigital">class <strong>PagoDigital</strong></a>(<a href="pago.html#Pago">Pago</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PagoDigital">PagoDigital</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Representa&nbsp;un&nbsp;pago&nbsp;digital.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_descuento&nbsp;(float):&nbsp;El&nbsp;porcentaje&nbsp;de&nbsp;descuento&nbsp;aplicado&nbsp;al&nbsp;pagar&nbsp;de&nbsp;forma&nbsp;digital.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="pago.html#PagoDigital">PagoDigital</a></dd>
+<dd><a href="pago.html#Pago">Pago</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PagoDigital-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Inicializa&nbsp;un&nbsp;nuevo&nbsp;pago&nbsp;digital&nbsp;con&nbsp;un&nbsp;descuento&nbsp;del&nbsp;2%.</span></dd></dl>
+
+<dl><dt><a name="PagoDigital-obtener_tipo"><strong>obtener_tipo</strong></a>(self) -&gt; str</dt><dd><span class="code">Obtiene&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;El&nbsp;tipo&nbsp;de&nbsp;pago&nbsp;('DIGITAL').</span></dd></dl>
+
+<dl><dt><a name="PagoDigital-pagar"><strong>pagar</strong></a>(self, monto_a_pagar: float) -&gt; bool</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;digital.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto_a_pagar&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;a&nbsp;pagar.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;si&nbsp;el&nbsp;pago&nbsp;se&nbsp;realiza&nbsp;correctamente,&nbsp;False&nbsp;en&nbsp;caso&nbsp;contrario.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="pago.html#Pago">Pago</a>:<br>
+<dl><dt><a name="PagoDigital-establecer_monto"><strong>establecer_monto</strong></a>(self, monto: float) -&gt; None</dt><dd><span class="code">Establece&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;a&nbsp;establecer.</span></dd></dl>
+
+<dl><dt><a name="PagoDigital-obtener_monto"><strong>obtener_monto</strong></a>(self) -&gt; float</dt><dd><span class="code">Obtiene&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float:&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="pago.html#Pago">Pago</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="PagoEfectivo">class <strong>PagoEfectivo</strong></a>(<a href="pago.html#Pago">Pago</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PagoEfectivo">PagoEfectivo</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Representa&nbsp;un&nbsp;pago&nbsp;en&nbsp;efectivo.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_descuento&nbsp;(float):&nbsp;El&nbsp;porcentaje&nbsp;de&nbsp;descuento&nbsp;aplicado&nbsp;al&nbsp;pagar&nbsp;en&nbsp;efectivo.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="pago.html#PagoEfectivo">PagoEfectivo</a></dd>
+<dd><a href="pago.html#Pago">Pago</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PagoEfectivo-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Inicializa&nbsp;un&nbsp;nuevo&nbsp;pago&nbsp;en&nbsp;efectivo&nbsp;con&nbsp;un&nbsp;descuento&nbsp;del&nbsp;2%.</span></dd></dl>
+
+<dl><dt><a name="PagoEfectivo-obtener_tipo"><strong>obtener_tipo</strong></a>(self) -&gt; str</dt><dd><span class="code">Obtiene&nbsp;el&nbsp;tipo&nbsp;de&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;El&nbsp;tipo&nbsp;de&nbsp;pago&nbsp;('EFECTIVO').</span></dd></dl>
+
+<dl><dt><a name="PagoEfectivo-pagar"><strong>pagar</strong></a>(self, monto_a_pagar: float) -&gt; bool</dt><dd><span class="code">Realiza&nbsp;un&nbsp;pago&nbsp;en&nbsp;efectivo.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto_a_pagar&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;a&nbsp;pagar.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;si&nbsp;el&nbsp;pago&nbsp;se&nbsp;realiza&nbsp;correctamente,&nbsp;False&nbsp;en&nbsp;caso&nbsp;contrario.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="pago.html#Pago">Pago</a>:<br>
+<dl><dt><a name="PagoEfectivo-establecer_monto"><strong>establecer_monto</strong></a>(self, monto: float) -&gt; None</dt><dd><span class="code">Establece&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;monto&nbsp;(float):&nbsp;El&nbsp;monto&nbsp;a&nbsp;establecer.</span></dd></dl>
+
+<dl><dt><a name="PagoEfectivo-obtener_monto"><strong>obtener_monto</strong></a>(self) -&gt; float</dt><dd><span class="code">Obtiene&nbsp;el&nbsp;monto&nbsp;del&nbsp;pago.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float:&nbsp;El&nbsp;monto&nbsp;del&nbsp;pago.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="pago.html#Pago">Pago</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
